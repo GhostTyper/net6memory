@@ -1,5 +1,5 @@
 # Bug in .NET 6 CLR (and .NET 7).
-There is (propably) a bug in the .NET 6 (and 7) runtime as of 7.0.3 / 7.0.200.
+There is (propably) a bug in the .NET 6 (and 7) runtime as of 6.0.14 and 7.0.3. You can follow [issue 82548 in dotnet/runtime](https://github.com/dotnet/runtime/issues/82548).
 When using multiple threads to create `byte[]` (and propably other datatypes as well) via `new byte[n]` and `GC.AllocateUninitializedArray(n, true)` the memory (quite often) gets corrupted. This usually leads to one of the following outcomes:
 1. The CLR crashes with `Fatal error. Internal CLR error. (0x80131506)`. Sometimes it also can print out a stacktrace for `System.GC._Collect(int, int)`.
 1. Previously initialized `byte[]`s get overwritten and sometimes also data within those `byte[]`s seem to get overwritten with some kind of control structure of the garbage collector.
