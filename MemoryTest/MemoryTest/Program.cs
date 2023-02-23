@@ -19,7 +19,7 @@ class Program
         Console.WriteLine("UninitializedArray(..., true). We did test this on various hardware but");
         Console.WriteLine("it may be that you can't reproduce the test results with your hardware.");
         Console.WriteLine();
-        Console.WriteLine("There a two error patterns: (1) byte[] may be overwritten with others");
+        Console.WriteLine("There are two error patterns: (1) byte[] may be overwritten with others");
         Console.WriteLine("or (2) the CLR (more seldom) may just die.");
         Console.WriteLine();
         Console.WriteLine($"You will require RAM. Approx ~{((THREADS + 2) * PER_RUN * 256) / 1048576} MB!");
