@@ -6,6 +6,7 @@ When using multiple threads to create `byte[]` (and propably other datatypes as 
 # How to reproduce this bug.
 1. Checkout the project and run it. :)
 Due to the randomness and the non deterministic behavior of this test case multiple starts of the software may be required. We observed that in most cases the first appearances of this issue happen within the first 5 to 10 seconds. __It also may make a difference if your hardware doesn't support all the threads we are starting.__ (You can try to adjust the settings for your hardware.)
+I added `endless.cmd` which will run 100 retries of the demo for people who want to do statistical analysis.
 # Error cases explained.
 ![Errors](./error.png)
 Case A shows the issue detected by our demo program: A `byte[]` (see `Mem.cs`, line `14`) has changed its size even though the corresponding `byte[]` is `public readonly` (see `Mem.cs`, line `5`).
